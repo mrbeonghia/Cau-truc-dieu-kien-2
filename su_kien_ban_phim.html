@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="doReady()">
+<img src="image\chaien2.jpg" alt="" id="chaien" style="position: absolute;left: 0;top: 0" height="200" width="300">
+<script>
+    function WPressed(){
+        let element = document.getElementById("chaien");
+        element.style.top = parseInt(element.style.top) - 5 +'px';
+    }
+    function SPressed(){
+        let element = document.getElementById("chaien");
+        element.style.top = parseInt(element.style.top) + 5 +'px';
+    }
+    function APressed(){
+        let element = document.getElementById("chaien");
+        element.style.left = parseInt(element.style.left) - 5 +'px';
+    }
+    function DPressed(){
+        let element = document.getElementById("chaien");
+        element.style.left = parseInt(element.style.left) + 5 +'px';
+    }
+    function moveSelection(evt){
+        switch (evt.keyCode){
+            case 87:
+                WPressed();
+                break;
+            case 83:
+                SPressed();
+                break;
+            case 65:
+                APressed();
+                break;
+            case 68:
+                DPressed();
+                break;
+        }
+    }
+    function doReady(){
+        window.addEventListener('keydown',moveSelection);
+    }
+</script>
+</body>
+</html>

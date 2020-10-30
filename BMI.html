@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chỉ số BMI</title>
+</head>
+<body>
+Nhập chiều cao: <input type="number" id="height" >
+<select name="" id="chose">
+    <option value="cm">cm</option>
+    <option value="m">m</option>
+</select>
+<br> <br>
+Nhập cân nặng:  <input type="number" id="weight"  >
+<button id="click" onclick="toBMI()" >Xem kết quả</button>
+<br><br>
+Chỉ số BMI của bạn: <p id="result" style="color: crimson"> </p>
+Phân loại: <p id="classify" style="color: brown" > </p>
+<script>
+    function toBMI() {
+    let h = document.getElementById('height').value;
+    let weight = document.getElementById('weight').value;
+    let chose = document.getElementById('chose').value;
+    let bmi,height;
+        switch (chose) {
+            case 'cm':
+                height = h/100;
+                break;
+            case 'm':
+                height = h;
+                break;
+        }
+        bmi = parseFloat(weight / (height * height));
+        document.getElementById("result").innerHTML = bmi.toFixed(3);
+            if (bmi < 18)
+                document.getElementById('classify').innerText="Underweight";
+            else if (bmi < 25.0)
+                document.getElementById('classify').innerText="Normal";
+            else if (bmi < 30.0)
+                document.getElementById('classify').innerText="Overweight";
+            else
+                document.getElementById('classify').innerText="Obese";
+
+    }
+
+</script>
+</body>
+</html>
